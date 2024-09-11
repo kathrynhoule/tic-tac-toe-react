@@ -1,9 +1,9 @@
 import React from "react";
 import "./tile.css";
 
-function Tile() {
+function Tile({className}) {
      return (
-          <div className="tile">X</div>
+          <div className={`tile ${className}`}>X</div>
      );
 }
 
