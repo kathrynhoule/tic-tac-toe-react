@@ -1,10 +1,11 @@
 import React from "react";
 import Tile from "./tile";
 import Strike from "./strike";
+import "./board.css";
 
 function Board() {
      return (
-          <div>
+          <div className="board">
                <Tile />
                <Tile />
                <Tile />

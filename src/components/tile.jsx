@@ -1,8 +1,9 @@
 import React from "react";
+import "./tile.css";
 
 function Tile() {
      return (
-          <div>X</div>
+          <div className="tile">X</div>
      );
 }
 
