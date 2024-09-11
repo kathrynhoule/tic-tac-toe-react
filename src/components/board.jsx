@@ -1,5 +1,6 @@
 import React from "react";
 import Tile from "./tile";
+import Strike from "./strike";
 
 function Board() {
      return (
@@ -13,6 +14,7 @@ function Board() {
                <Tile />
                <Tile />
                <Tile />
+               <Strike />
           </div>
      );
 }
