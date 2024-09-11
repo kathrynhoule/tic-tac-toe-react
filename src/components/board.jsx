@@ -3,7 +3,7 @@ import Tile from "./tile";
 import Strike from "./strike";
 import "./board.css";
 
-function Board({ tiles }) {
+function Board({tiles}) {
      return (
           <div className="board">
                <Tile value={tiles[0]} className='right-border bottom-border' />
