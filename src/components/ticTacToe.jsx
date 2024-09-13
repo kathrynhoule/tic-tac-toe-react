@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Board from "./board";
 
 const PLAYER_X = "X";
 const PLAYER_O = "O";
+
+function checkWinner() {
+
+};
 
 function TicTacToe() {
      const [tiles, setTiles] = useState(Array(9).fill(null));
@@ -24,6 +28,10 @@ function TicTacToe() {
                setPlayerTurn(PLAYER_X);
           }
      };
+
+     useEffect(() => {
+          checkWinner();
+     }, [tiles]);
 
      return (
           <div>
