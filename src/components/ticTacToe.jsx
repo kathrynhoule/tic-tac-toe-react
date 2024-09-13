@@ -36,6 +36,7 @@ function checkWinner(tiles, setStrikeClass, setGameState) {
                else {
                     setGameState(GameState.playerOwins)
                }
+               return;
           }
      }
 
