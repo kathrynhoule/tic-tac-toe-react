@@ -3,6 +3,14 @@ import Board from "./board";
 import GameOver from "./gameOver";
 import GameState from "./GameState";
 import Reset from "./Reset";
+import gameOverSoundAsset from '../sounds/game-over.wave';
+import clickSoundAsset from '../sounds/click.wave';
+
+const gameOverSound = new Audio(gameOverSoundAsset);
+gameOverSound.volume = 0.2;
+
+const clickSound = new Audio(clickSoundAsset);
+clickSound.volume = 0.5;
 
 const PLAYER_X = "X";
 const PLAYER_O = "O";
