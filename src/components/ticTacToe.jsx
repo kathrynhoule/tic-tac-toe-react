@@ -98,6 +98,12 @@ function TicTacToe() {
           }
      }, [tiles]);
 
+     useEffect(() => {
+          if(gameState !== GameState.inProgress) {
+               gameOverSound.play();
+          }
+     }, [gameState]);
+
      return (
           <div>
                <h1>Tic Tac Toe</h1>
