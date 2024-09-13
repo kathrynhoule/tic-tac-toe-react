@@ -1,8 +1,27 @@
+.reset-wrapper {
+     position: relative;
+     width: 300px;
+     display: flex;
+     justify-content: center;
+     margin: 0 auto;
+ }
+
 .reset-button {
-     margin-top: 50px;
-     padding: 20px;
-     background-color: #0074a6;
-     color: white;
-     width: 100%;
-     font-size: 1.5em;
+     display: inline-block;
+     position: relative;
+     margin: 20px 0px;
+     padding: 12px 36px;
+     width: 80%;
+     color: #F3F3F3;
+     font-family: "Kanit", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 1.3em;
+     text-decoration: none;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     border: none;
+     border-radius: 20px;
+     background-color: #901328;
+     cursor: pointer;
 }

@@ -115,7 +115,9 @@ function TicTacToe() {
                     strikeClass={strikeClass}
                />
                <GameOver gameState={gameState}/>
-               <Reset gameState={gameState} onReset={handleReset}/>
+               <div className="reset-wrapper">
+                    <Reset gameState={gameState} onReset={handleReset}/>
+               </div>
           </div>
      );
 }
