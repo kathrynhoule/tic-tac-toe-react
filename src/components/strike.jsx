@@ -1,8 +1,9 @@
-import React from "react"
+import React from "react";
+import "./strike.css";
 
 function Strike() {
      return (
-          <div></div>
+          <div className="strike strike-row-2"></div>
      )
 }
 
