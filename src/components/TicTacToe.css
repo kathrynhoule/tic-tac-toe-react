@@ -1,0 +1,12 @@
+.game-container {
+     margin-top: 15%;
+}
+
+h1 {
+     text-align: center;
+     margin-bottom: 15%;
+     font-family: "Kanit", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+     font-size: 2.4em;
+}

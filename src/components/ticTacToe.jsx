@@ -5,6 +5,7 @@ import GameState from "./GameState";
 import Reset from "./Reset";
 import gameOverSoundAsset from '../sounds/game-over.wav';
 import clickSoundAsset from '../sounds/click.wav';
+import "./TicTacToe.css";
 
 const gameOverSound = new Audio(gameOverSoundAsset);
 gameOverSound.volume = 0.2;
@@ -105,7 +106,7 @@ function TicTacToe() {
      }, [gameState]);
 
      return (
-          <div>
+          <div className= "game-container">
                <h1>Tic Tac Toe</h1>
                <Board 
                     playerTurn={playerTurn} 
