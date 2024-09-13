@@ -1,9 +1,9 @@
 import React from "react";
 import "./strike.css";
 
-function Strike() {
+function Strike({strikeClass}) {
      return (
-          <div className="strike strike-row-2"></div>
+          <div className={`strike ${strikeClass}`}></div>
      )
 }
 
