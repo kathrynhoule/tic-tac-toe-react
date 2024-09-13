@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Board from "./board";
+import GameOver from "./gameOver";
+import GameState from "./GameState";
 
 const PLAYER_X = "X";
 const PLAYER_O = "O";
@@ -66,6 +68,7 @@ function TicTacToe() {
                     onTileClick={handleTileClick}
                     strikeClass={strikeClass}
                />
+               <GameOver />
           </div>
      );
 }
