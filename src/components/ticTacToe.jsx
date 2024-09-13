@@ -22,7 +22,7 @@ const winnerCombinations = [
      {combo:[2,4,6], strikeClass: "strike-diagonal-2"},
 ]
 
-function checkWinner(tiles, setStrikeClass) {
+function checkWinner(tiles, setStrikeClass, setGameState) {
      for(const {combo, strikeClass} of winnerCombinations){
           const tileValue1 = tiles[combo[0]];
           const tileValue2 = tiles[combo[1]];
@@ -30,7 +30,18 @@ function checkWinner(tiles, setStrikeClass) {
 
           if (tileValue1 !== null && tileValue1 === tileValue2 && tileValue1 === tileValue3){
                setStrikeClass(strikeClass);
+               if (tileValue1 === PLAYER_X) {
+                    setGameState(GameState.playerXwins)
+               }
+               else {
+                    setGameState(GameState.playerOwins)
+               }
           }
+     }
+
+     const areAllTilesFilled = tiles.every((tile) => tile !== null);
+     if (areAllTilesFilled) {
+          setGameState(GameState.draw);
      }
 };
 
