@@ -1,0 +1,8 @@
+.game-over {
+     text-align: center;
+     border: #0074a6 8px;
+     border-style: dotted;
+     padding: 10px;
+     margin-top: 50px;
+     font-size: 1.5em;
+}
