@@ -73,6 +73,13 @@ function TicTacToe() {
           }
      };
 
+     const handleReset =  () => {
+          setGameState(GameState.inProgress);
+          setTiles(Array(9).fill(null));
+          setPlayerTurn(PLAYER_X);
+          setStrikeClass(null);
+     }
+
      useEffect(() => {
           checkWinner(tiles, setStrikeClass, setGameState);
      }, [tiles]);
@@ -87,7 +94,7 @@ function TicTacToe() {
                     strikeClass={strikeClass}
                />
                <GameOver gameState={gameState}/>
-               <Reset gameState={gameState}/>
+               <Reset gameState={gameState} onReset={handleReset}/>
           </div>
      );
 }

@@ -2,12 +2,12 @@ import React from "react"
 import "./Reset.css"
 import GameState from "./GameState";
 
-function Reset({gameState}) {
+function Reset({gameState, onReset}) {
      if (gameState === GameState.inProgress) {
           return;
      }
      return (
-          <button className="reset-button">Reset</button>
+          <button onClick={onReset} className="reset-button">Reset</button>
      )
 }
 
