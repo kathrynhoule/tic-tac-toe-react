@@ -11,10 +11,7 @@ After installing the dependencies, you can run this project using `npm run dev` 
 
 ## Phases
 ### Phase 1
-Phase 1 will be for getting the basics of the application set up and functioning (creating the board and tiles; ensuring that a functional game for two players can be played; creating buttons for playing another game, etc.). CSS will be added to create the layout for the board and ensure that the application visually resembles tic tac toe, but the focus here will not be on creating detailed styling or media queries for different screen sizes.
+Phase 1 will be for getting the basics of the application set up and functioning (creating the board and tiles; ensuring that a functional game for two players can be played; creating buttons for playing another game, etc.). CSS will be added to create the layout for the board and ensure that the application visually resembles tic tac toe, with some additional styling details.
 
 ### Phase 2
-Phase 2 will be for adding more details to the styling along with media queries. In addition, some features of the application may be updated if/when possible. This will also be the stage in which an option will be added to play against the computer, and a homescreen will be added to allow the user to choose which type of game they want to play.
-
-### Phase 3
-Phase 3 will mostly be for adding testing where applicable. Another steps may be added to this phase if they become applicable.
+Phase 2 will be for adding media queries for different screen sizes. In addition, some features of the application may be updated if/when possible. This will also be the stage in which an option will be added to play against the computer, and options will be added to allow the user to choose which type of game they want to play. Testing may also be added where applicable.
