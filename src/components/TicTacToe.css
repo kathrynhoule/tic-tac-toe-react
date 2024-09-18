@@ -3,6 +3,7 @@
 }
 
 h1 {
+     position: relative;
      text-align: center;
      margin-bottom: 10%;
      font-family: "Kanit", sans-serif;
@@ -11,3 +12,80 @@ h1 {
      font-size: 2.4em;
      color: #F3F3F3;
 }
+
+.space {
+     display: inline-block;
+     width: 10px;
+ }
+
+@keyframes bounce {
+     0%, 100% {
+         transform: translateY(0);
+     }
+     50% {
+         transform: translateY(-30px);
+     }
+ }
+
+ .active .t {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0s;
+ }
+ 
+ .active .i {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.1s;
+ }
+ 
+ .active .c {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.2s;
+ }
+ 
+ .active .tt {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.3s;
+ }
+ 
+ .active .a {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.4s;
+ }
+ 
+ .active .cc {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.5s;
+ }
+ 
+ .active .ttt {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.6s;
+ }
+ 
+ .active .o {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.7s;
+ }
+ 
+ .active .e {
+     display: inline-block;
+     animation: bounce 0.6s ease-in-out;
+     animation-fill-mode: both;
+     animation-delay: 0.8s;
+ }

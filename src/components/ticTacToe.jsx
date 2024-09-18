@@ -61,6 +61,7 @@ function TicTacToe() {
      const [playerTurn, setPlayerTurn] = useState(PLAYER_X);
      const [strikeClass, setStrikeClass] = useState();
      const [gameState, setGameState] = useState(GameState.inProgress);
+     const [isTitleActive, setIsTitleActive] = useState(false);
 
      const handleTileClick = (index) => {
           if (gameState !== GameState.inProgress) {
@@ -87,6 +88,9 @@ function TicTacToe() {
           setTiles(Array(9).fill(null));
           setPlayerTurn(PLAYER_X);
           setStrikeClass(null);
+
+          setIsTitleActive(false);
+          setTimeout(() => setIsTitleActive(true), 10);
      }
 
      useEffect(() => {
@@ -105,9 +109,25 @@ function TicTacToe() {
           }
      }, [gameState]);
 
+     useEffect(() => {
+          setIsTitleActive(true);
+     }, []);
+
      return (
           <div className= "game-container">
-               <h1>Tic Tac Toe</h1>
+               <h1 className={isTitleActive ? "active" : ""}>
+                    <span className="t">T</span>
+                    <span className="i">i</span>
+                    <span className="c">c</span>
+                    <span className="space">&nbsp;</span>
+                    <span className="tt">T</span>
+                    <span className="a">a</span>
+                    <span className="cc">c</span>
+                    <span className="space">&nbsp;</span> 
+                    <span className="ttt">T</span>
+                    <span className="o">o</span>
+                    <span className="e">e</span>
+               </h1>
                <Board 
                     playerTurn={playerTurn} 
                     tiles={tiles} 
