@@ -1,0 +1,158 @@
+// imports
+import React, { useState, useEffect } from "react";
+import Board from "./board";
+import GameOver from "./gameOver";
+import GameState from "./GameState";
+import Reset from "./Reset";
+import gameOverSoundAsset from '../sounds/game-over.wav';
+import clickSoundAsset from '../sounds/click.wav';
+import "./TicTacToe.css";
+
+// inits for tile click and game over sounds
+const gameOverSound = new Audio(gameOverSoundAsset);
+gameOverSound.volume = 0.2;
+
+const clickSound = new Audio(clickSoundAsset);
+clickSound.volume = 0.5;
+
+// defines the two players
+const PLAYER_X = "X";
+const PLAYER_O = "O";
+
+// defines the possible winning combinations, and which strikethroughs are used for them
+const winnerCombinations = [
+     // rows
+     {combo:[0,1,2], strikeClass: "strike-row-1"},
+     {combo:[3,4,5], strikeClass: "strike-row-2"},
+     {combo:[6,7,8], strikeClass: "strike-row-3"},
+
+     // columns
+     {combo:[0,3,6], strikeClass: "strike-column-1"},
+     {combo:[1,4,7], strikeClass: "strike-column-2"},
+     {combo:[2,5,8], strikeClass: "strike-column-3"},
+
+     // diagonals
+     {combo:[0,4,8], strikeClass: "strike-diagonal-1"},
+     {combo:[2,4,6], strikeClass: "strike-diagonal-2"},
+]
+
+// checks for a winner or a draw
+function checkWinner(tiles, setStrikeClass, setGameState) {
+     // goes through to check for winning combinations
+     for(const {combo, strikeClass} of winnerCombinations){
+          const tileValue1 = tiles[combo[0]];
+          const tileValue2 = tiles[combo[1]];
+          const tileValue3 = tiles[combo[2]];
+
+          // declares a winner if all three tiles in the combo match
+          if (tileValue1 !== null && tileValue1 === tileValue2 && tileValue1 === tileValue3){
+               // adds the strikethrough
+               setStrikeClass(strikeClass);
+               // sets game state depending on which player won
+               if (tileValue1 === PLAYER_X) {
+                    setGameState(GameState.playerXwins)
+               }
+               else {
+                    setGameState(GameState.playerOwins)
+               }
+               return;
+          }
+     }
+
+     // declares a draw if all tiles are filled and there's no winner
+     const areAllTilesFilled = tiles.every((tile) => tile !== null);
+     if (areAllTilesFilled) {
+          setGameState(GameState.draw);
+     }
+};
+
+function TicTacToe() {
+     // state inits
+     const [tiles, setTiles] = useState(Array(9).fill(null));
+     const [playerTurn, setPlayerTurn] = useState(PLAYER_X);
+     const [strikeClass, setStrikeClass] = useState();
+     const [gameState, setGameState] = useState(GameState.inProgress);
+     const [isTitleActive, setIsTitleActive] = useState(false);
+
+     // handle for clicking tiles
+     const handleTileClick = (index) => {
+          // prevents tile click if the game state is not in progress or if a tile is not available
+          if (gameState !== GameState.inProgress || tiles[index] !== null) {
+               return;
+          }
+
+          // sets tiles to current player's symbol
+          const newTiles = [...tiles];
+          newTiles[index] = playerTurn;
+          setTiles(newTiles);
+
+          // sets player turn to the other player
+          setPlayerTurn(playerTurn === PLAYER_X ? PLAYER_O : PLAYER_X);
+     };
+
+     // handles game reset for new round
+     const handleReset =  () => {
+          setGameState(GameState.inProgress);
+          setTiles(Array(9).fill(null));
+          setPlayerTurn(PLAYER_X);
+          setStrikeClass(null);
+     
+          // resets the title animation
+          setIsTitleActive(false);
+          setTimeout(() => setIsTitleActive(true), 10);
+     }
+
+     // checks for a winner or draw whens tiles are updated
+     useEffect(() => {
+          checkWinner(tiles, setStrikeClass, setGameState);
+     }, [tiles]);
+
+     // plays tile click sound when tile is clicked
+     useEffect(() => {
+          if(tiles.some((tile) => tile !== null)) {
+               clickSound.play();
+          }
+     }, [tiles]);
+
+     // plays game over sound when game state is not in progress
+     useEffect(() => {
+          if(gameState !== GameState.inProgress) {
+               gameOverSound.play();
+          }
+     }, [gameState]);
+
+     // plays title animation when the component mounts
+     useEffect(() => {
+          setIsTitleActive(true);
+     }, []);
+
+     return (
+          <div className= "game-container">
+               <h1 className={isTitleActive ? "active" : ""}>
+                    <span className="t">T</span>
+                    <span className="i">i</span>
+                    <span className="c">c</span>
+                    <span className="space">&nbsp;</span>
+                    <span className="tt">T</span>
+                    <span className="a">a</span>
+                    <span className="cc">c</span>
+                    <span className="space">&nbsp;</span> 
+                    <span className="ttt">T</span>
+                    <span className="o">o</span>
+                    <span className="e">e</span>
+               </h1>
+               <Board 
+                    playerTurn={playerTurn} 
+                    tiles={tiles} 
+                    onTileClick={handleTileClick}
+                    strikeClass={strikeClass}
+               />
+               <GameOver gameState={gameState}/>
+               <div className="reset-wrapper">
+                    <Reset gameState={gameState} onReset={handleReset}/>
+               </div>
+          </div>
+     );
+}
+
+export default TicTacToe;

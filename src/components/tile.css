@@ -1,0 +1,28 @@
+.tile {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #751828;
+     border: 4px solid #222725;
+     border-radius: 12px;
+     color: currentColor;
+     font-size: 2em;
+}
+
+/* .right-border {
+     border-right: 0.2em solid #0074a6;
+}
+
+.bottom-border {
+     border-bottom: 0.2em solid #0074a6;
+} */
+
+.x-hover:hover::after {
+     content: 'X';
+     opacity: 0.4;
+}
+
+.o-hover:hover::after {
+     content: 'O';
+     opacity: 0.4;
+}
