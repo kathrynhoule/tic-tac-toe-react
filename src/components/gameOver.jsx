@@ -1,7 +1,9 @@
+// imports
 import React from "react";
 import GameState from "./GameState";
 import "./GameOver.css";
 
+// switch cases depending on which player won, based on the game state
 function GameOver({gameState}) {
      switch(gameState) {
           case GameState.inProgress:

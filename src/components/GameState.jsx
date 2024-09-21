@@ -1,3 +1,4 @@
+// defines game states
 const GameState = {
      playerXwins: 0,
      playerOwins: 1,
