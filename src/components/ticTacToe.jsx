@@ -81,44 +81,47 @@ function TicTacToe() {
                return;
           }
 
+          // sets tiles to current player's symbol
           const newTiles = [...tiles];
           newTiles[index] = playerTurn;
           setTiles(newTiles);
 
-          if (playerTurn === PLAYER_X) {
-               setPlayerTurn(PLAYER_O);
-          }
-          else {
-               setPlayerTurn(PLAYER_X);
-          }
+          // sets player turn to the other player
+          setPlayerTurn(playerTurn === PLAYER_X ? PLAYER_O : PLAYER_X);
      };
 
+     // handles game reset for new round
      const handleReset =  () => {
           setGameState(GameState.inProgress);
           setTiles(Array(9).fill(null));
           setPlayerTurn(PLAYER_X);
           setStrikeClass(null);
-
+     
+          // resets the title animation
           setIsTitleActive(false);
           setTimeout(() => setIsTitleActive(true), 10);
      }
 
+     // checks for a winner or draw whens tiles are updated
      useEffect(() => {
           checkWinner(tiles, setStrikeClass, setGameState);
      }, [tiles]);
 
+     // plays tile click sound when tile is clicked
      useEffect(() => {
           if(tiles.some((tile) => tile !== null)) {
                clickSound.play();
           }
      }, [tiles]);
 
+     // plays game over sound when game state is not in progress
      useEffect(() => {
           if(gameState !== GameState.inProgress) {
                gameOverSound.play();
           }
      }, [gameState]);
 
+     // plays title animation when the component mounts
      useEffect(() => {
           setIsTitleActive(true);
      }, []);
