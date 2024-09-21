@@ -1,8 +1,10 @@
+// imports
 import React from "react";
 import Tile from "./tile";
 import Strike from "./strike";
 import "./board.css";
 
+// renders a 3x3 grid of tiles, and a strikethrough when it is called
 function Board({tiles, onTileClick, playerTurn, strikeClass}) {
      return (
           <div className="board">
